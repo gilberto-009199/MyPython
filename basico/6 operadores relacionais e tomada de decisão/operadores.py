@@ -1,0 +1,14 @@
+"""""
+Operadores
+
+Iguadade:
+(=)-> ==
+(=diferente=) ->!=
+
+ relacionais
+ (>)-> >
+ (<)-> <
+ (>=)-> >=
+ (<=)-> <=
+ 
+"""""
