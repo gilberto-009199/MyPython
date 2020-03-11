@@ -1,3 +1,4 @@
+# Tente implementar o Teste de primalidade de Miller-Rabin
 # Função que cuida do modulo para verificar se existe um valor divisivel
 divisible = lambda val0, val1: val0 % val1 == 0;
 
