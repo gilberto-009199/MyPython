@@ -1,0 +1,4 @@
+val0,val1 : int
+leia val0
+leia val1
+escreva( val0 + val1 )

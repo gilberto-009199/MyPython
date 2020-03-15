@@ -17,7 +17,7 @@ def isPrimo( val0 ):
 
 
 while True:
-  listVal = str(input()).strip().split(" ");
+  listVal = str(input()).split(" ");
 #  num = int(input());
 #  print(" ", num, " e PRIMO?  ")
 #  print(isPrimo(num))
@@ -29,5 +29,6 @@ while True:
 #    print(" \n Testando : ",val0)
     if isPrimo(val0) :
 #      print(val0," é primo !");
-      print(val0);
+      if(val0 != 1):
+        print(val0);
   exit();

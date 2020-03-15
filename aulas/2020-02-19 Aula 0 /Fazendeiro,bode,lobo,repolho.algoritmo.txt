@@ -1,0 +1,25 @@
+ (1) A partir do estado inicial, com todos os elementos na margem leste do rio, escreva uma sequência
+de passos que leve todos os elementos para a margem oeste do rio, levando em consideração
+tudo o que foi descrito anteriormente.
+
+ 1° Fazendeiro leva o bode ate a margem direita
+	F	R	B	L
+	1	0	1	0
+ 2° Fazendeiro retorna para a margem esquerda
+	F	R	B	L
+	0	0	1	0
+ 3° Fazendeiro leva o lobo ate a margem direita
+	F	R	B	L
+	1	0	1	1
+ 4° Fazendeiro leva o bode ate a margem esquerda
+	F	R	B	L
+	0	0	0	1
+ 5° Fazendeiro leva o repolho ate a margem direita
+	F	R	B	L
+	1	1	0	1
+ 6° Fazendeiro retorna para a margem esquerda
+	F	R	B	L
+	0	1	0	1
+ 7° Fazendeiro leva o bode ate a margem direita
+	F	R	B	L
+	1	1	1	1
