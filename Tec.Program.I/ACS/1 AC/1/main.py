@@ -1,3 +1,4 @@
+# Gilberto Ramos de Oliveira 1903991
 # -*- coding: utf-8 -*-
 
 distancia = lambda x1,y1,x2,y2: ( (x2 - x1)**2 + (y2 - y1)**2 )**(1/2)

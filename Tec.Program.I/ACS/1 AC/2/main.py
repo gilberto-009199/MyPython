@@ -1,10 +1,11 @@
+# Gilberto Ramos de Oliveira 1903991
 # -*- coding: utf-8 -*-
 import math;
 
 # Angulo >>> radianos
 theta       = math.radians(float(input()));
 
-# m/s²
+# m/s�
 velocidade  = float(input());
 gravidade   = float(input());
 
