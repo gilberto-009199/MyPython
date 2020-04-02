@@ -4,8 +4,8 @@
         # E um pena que (not isAprovado) não é o suficiente!
 
         isAprovado  = n_aluno >= 7 and f_aluno <= 25
-        isReprovado = n_aluno < 5  and f_aluno  > 25
-         
+        isReprovado = n_aluno < 5  or f_aluno  > 25
+        O contrario passou o sinal de ( <preposicao> and <preposicao> ) para ( <preposicao> or <preposicao> ) no teste
         O contrario passou o sinal de (maior ou iqual) para (menor) a nota
         O contrario passou o sinal de (menor ou iqual) para (maior) a falta
 
