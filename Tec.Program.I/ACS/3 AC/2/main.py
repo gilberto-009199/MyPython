@@ -7,7 +7,7 @@ def fatorial(val):
         return val * fatorial(val - 1);
     else:
         return 1;
-print(fatorial(0))
+
 def seno(val):
     seno  = 0;
     isSum = True; #Vai somar bonitao?
@@ -21,7 +21,7 @@ def seno(val):
 
 def cos(val):
     cos   = 0;
-    isSum = True; #Vai somar bonitao?
+    isSum = True; #Vai negativar?
     for index in range(0, precisao , 2):# <= codigo repetido
         if isSum :
             cos += (val**index)/ fatorial(index);
