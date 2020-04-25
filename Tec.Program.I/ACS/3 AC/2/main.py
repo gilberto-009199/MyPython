@@ -17,7 +17,7 @@ def seno(val):
         else:
             seno -= (val**index)/ fatorial(index);
         isSum = not isSum; #Inverte a operação
-    print(round(seno,5));
+    return round(seno,5);
 
 def cos(val):
     cos   = 0;
@@ -28,12 +28,12 @@ def cos(val):
         else:
             cos -= (val**index)/ fatorial(index);
         isSum = not isSum;#Inverte a operação
-    print(round(cos,5));
+    return round(cos,5);
 
 #theta    = math.radians(int(input(" Valor }> ")));
 #precisao = int(input(" Precisao }> "));
 theta    = math.radians(int(input()));
 precisao = int(input());
 
-seno(theta);
-cos(theta);
+print(seno(theta));
+print(cos(theta));
