@@ -11,7 +11,7 @@ def fatorial(val):
 def seno(val):
     seno  = 0;
     isSum = True; #Vai somar bonitao?
-    for index in range(1, precisao , 2): # <= codigo rebetido
+    for index in range(1, precisao + 1 , 2): # <= codigo rebetido
         if isSum :
             seno += (val**index)/ fatorial(index);
         else:
@@ -22,7 +22,7 @@ def seno(val):
 def cos(val):
     cos   = 0;
     isSum = True; #Vai negativar?
-    for index in range(0, precisao , 2):# <= codigo repetido
+    for index in range(0, precisao + 1, 2):# <= codigo repetido
         if isSum :
             cos += (val**index)/ fatorial(index);
         else:
