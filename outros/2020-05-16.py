@@ -1,3 +1,4 @@
+# Inverte um vetor
 vectFrutas = 10 * ["Abacate"];
 vectFrutas[0] = "Mação";
 vectFrutas[1] = "Limão";
