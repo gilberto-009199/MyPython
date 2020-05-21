@@ -34,8 +34,8 @@ def interseccao(list0, list1):
 #[10, 11, 14, 20, 8, 2, 14, 3, 11]
 #[1, 10, 9, 14, 20, 14]
 
-#[1, 2, 3, 4, 5]
-#[3, 4, 6]
+#[1, 2, 1, 3, 2, 4, 3, 5, 4, 5]
+#[3, 4, 3, 4, 6, 8, 6, 5, 6]
 
 # (ja implementado, voce nao precisa se preocupar com o codigo partir deste ponto)
 lista1 = eval(input())

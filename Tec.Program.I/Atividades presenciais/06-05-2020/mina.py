@@ -1,8 +1,6 @@
-# Caso eu esteja errado sobre as atividades altere para 1 
-
-
 
 while True:
+
 
   listAtividades = [];
   mediaGeral = 0;
@@ -22,8 +20,7 @@ while True:
     nota5   = float(input(" Digite a nota 5 }> "));
     
     listAtividades.append( [nome, nota1, nota2, nota3, nota4, nota5] );
-
-
+    
   alunoMediaMaior = listAtividades[0];
   
   for aluno in listAtividades:
