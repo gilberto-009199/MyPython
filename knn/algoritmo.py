@@ -53,8 +53,11 @@ def getEuclidiana( cliente0 , cliente1 ):
 
 listClassificados   = le_arquivo('mediaPorNasci.knn.algoritmo.txt');
 listNaoClassificados = le_arquivo('comandas.knn.algoritmo.txt');
-
-for clienteNaoIdentificado in listNaoClassificados:
+qtdAmericanos = 0;
+qtdEspanhol = 0;
+qtdFrances = 0;
+qtdBrasileiro = 0;
+for (index, clienteNaoIdentificado) in enumerate(listNaoClassificados):
     # Lista que ira ordenarar os clientes mais proximos dele 
     listIndexadaPelaDistancia = [];
     for clienteIdentificado in listClassificados:
@@ -82,8 +85,44 @@ for clienteNaoIdentificado in listNaoClassificados:
     # pegar uma porcentagem dos classificados como 30% algo assim,
     # quem sabe , afinal eu não sou um experti em algoritmos de 
     # aprendizado supervizionado de maguina
-
-    for i in listIndexadaPelaDistancia:
+    isAmerica = 0;
+    isFrances = 0;
+    isEspanho = 0;
+    isBrasile = 0;
+    for i in listIndexadaPelaDistancia[:K]:
         print(i);
-    exit(0);
+        if i['nascionalidade'] == "America":
+            isAmerica += 1;
+        elif i['nascionalidade'] == "Espanho":
+            isEspanho += 1;
+        elif i['nascionalidade'] == "Frances":
+            isFrances += 1;
+        elif i['nascionalidade'] == "Brasile":
+            isBrasile += 1;
+        else:
+            print("Categoria não identificada")
+    categoriaDefinida = "Indefinida...";
+    if isAmerica > isEspanho and isAmerica > isFrances and isAmerica > isBrasile:
+        categoriaDefinida = "America";
+        qtdAmericanos += 1;
+    elif isEspanho > isAmerica and isEspanho > isFrances and isEspanho > isBrasile:
+        categoriaDefinida = "Espanho";
+        qtdEspanhol += 1;
+    elif isFrances > isAmerica and isFrances > isEspanho and isFrances > isBrasile:
+        categoriaDefinida = "Frances";
+        qtdFrances += 1;
+    elif isBrasile > isAmerica and isBrasile > isEspanho and isBrasile > isFrances:
+        categoriaDefinida = "Brasile";
+        qtdBrasileiro += 1;
+    
+    print("Linha : %i" % index);
+    print("Categoria Definida   : %s " % categoriaDefinida)
+    print("Categoria Verdadeira : %s " % clienteNaoIdentificado['nascionalidade'])
+print(" Nacionalidade dos clientes :")
+print(" Americanos %i " % qtdAmericanos);
+print(" Espanhois %i " % qtdEspanhol);
+print(" Franceses %i " % qtdFrances);
+print(" Brasileiros %i " % qtdBrasileiro);
+
+#    exit(0);
                                          
