@@ -11,26 +11,30 @@ def isExist(filePath):
         return False
 
 def le_arquivo(nome):
+    # Lista com os dados pegos linha por linha
     listDados = [];
+    # Abre o arquivo para leitura 'r'
     with open( nome,'r') as arquivo:
+        # Le o arquivo linah por linha
         for line in arquivo:
-            item = [];
-            
-            carne_vermelha  = float(line[4:9])
-            carne_branca    = float(line[13:18])
-            massa           = float(line[22:27])
-            fruta           = float(line[31:36])
-            vegetais        = float(line[40:45])
-            nascionalidade  = line[50:57]
-
+            # Corta o texto da linha para pegar cada dado
+            carne_vermelha  = float(line[4:9]);
+            carne_branca    = float(line[13:18]);
+            massa           = float(line[22:27]);
+            fruta           = float(line[31:36]);
+            vegetais        = float(line[40:45]);
+            nascionalidade  = line[50:57];
+            # Monta o Cliente e adiciona na lista 
             listDados.append({  'carnes_vermelhas':carne_vermelha,
                                 'carnes_brancas':carne_branca,
                                 'massas':massa,
                                 'frutas':fruta,
                                 'vegetais':vegetais,
                                 'nascionalidade':nascionalidade
-                             })
+                             });
+        # Fecha o arquivo aberto
         arquivo.close();
+    # Retorna as informação guardadas na lista
     return listDados;
 
 # Função que retorna a distancia euclidiana de 2 clientes
@@ -57,15 +61,19 @@ qtdAmericanos = 0;
 qtdEspanhol = 0;
 qtdFrances = 0;
 qtdBrasileiro = 0;
-for (index, clienteNaoIdentificado) in enumerate(listNaoClassificados):
+for clienteNaoIdentificado in listNaoClassificados:
+    # Codigo para comparar e determinar a classe mais proxima
     # Lista que ira ordenarar os clientes mais proximos dele 
     listIndexadaPelaDistancia = [];
-    for clienteIdentificado in listClassificados:
-        distancia = getEuclidiana(clienteNaoIdentificado,clienteIdentificado);
+    for pessoaIdentificada in listClassificados:
+        # Codigo que vai comparar o
+        # ClienteNãoIdentificado com
+        # cada um dos pessoaIdentificada no estudo 
+        distancia = getEuclidiana(clienteNaoIdentificado,pessoaIdentificada);
         # Colocando na lista de ordenacao
         listIndexadaPelaDistancia.append({
                                             'distancia':distancia,
-                                            'nascionalidade': clienteIdentificado['nascionalidade']
+                                            'nascionalidade': pessoaIdentificada['nascionalidade']
                                          });
     # Hora de ordenar pelos com menor
     # distancia
@@ -84,7 +92,7 @@ for (index, clienteNaoIdentificado) in enumerate(listNaoClassificados):
     # Escolhi 7, mas na minha opniao seria melhor
     # pegar uma porcentagem dos classificados como 30% algo assim,
     # quem sabe , afinal eu não sou um experti em algoritmos de 
-    # aprendizado supervizionado de maguina
+    # aprendizado supervisionado de maguina
     isAmerica = 0;
     isFrances = 0;
     isEspanho = 0;
@@ -115,7 +123,6 @@ for (index, clienteNaoIdentificado) in enumerate(listNaoClassificados):
         categoriaDefinida = "Brasile";
         qtdBrasileiro += 1;
     
-    print("Linha : %i" % index);
     print("Categoria Definida   : %s " % categoriaDefinida)
     print("Categoria Verdadeira : %s " % clienteNaoIdentificado['nascionalidade'])
 print(" Nacionalidade dos clientes :")
