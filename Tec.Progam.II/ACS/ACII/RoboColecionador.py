@@ -57,13 +57,21 @@ def operar(angulo,robo):
         # LESTE
         elif direcaoFinal == SENTIDOS[1]:
 #            print("MOVIMENTAR PARA ESQUERDA!");
-            if (TABULEIRO[robo["linha"]][robo["coluna"] - 1] != "#") :
+            if (TABULEIRO[robo["linha"]][robo["coluna"] + 1] != "#") :
                 TABULEIRO[ int(robo["linha"]) ][ int(robo["coluna"]) ] = ".";
+                # Verifica se passou da linha
+                if (len(TABULEIRO[robo["linha"]]) >= robo["coluna"] + 1):
+                    if (TABULEIRO[robo["linha"]][robo["coluna"] + 1] == "*"):
+                        countBandeira += 1;
+                    TABULEIRO[robo["linha"]][robo["coluna"] + 1] = direcaoFinal;
+                    robo = {"linha": robo["linha"] ,"coluna": robo["coluna"] + 1};
+#Não se esquecao de verificar se est ano ultimo quadro da ultima linha
+                elif(TABULEIRO[robo["linha"]+1][0] != "#"):
+                    if (TABULEIRO[robo["linha"]][0] == "*"):
+                        countBandeira += 1;
+                    TABULEIRO[robo["linha"]][robo["coluna"] + 1] = direcaoFinal;
+                    robo = {"linha": robo["linha"] ,"coluna": robo["coluna"] + 1};
 
-                if (TABULEIRO[robo["linha"]][robo["coluna"] - 1] == "*"):
-                    countBandeira += 1;
-                TABULEIRO[robo["linha"]][robo["coluna"] - 1] = direcaoFinal;
-                robo = {"linha": robo["linha"] ,"coluna": robo["coluna"] - 1};
         # SUL
         elif direcaoFinal == SENTIDOS[2]:
 #           print("MOVIMENTAR PARA BAIXAR!");
@@ -77,17 +85,17 @@ def operar(angulo,robo):
         # OESTE
         elif direcaoFinal == SENTIDOS[3]:
 #            print("MOVIMENTAR PARA DIREITA!");
-            if (TABULEIRO[robo["linha"]][robo["coluna"] + 1] != "#") :
+            if (TABULEIRO[robo["linha"]][robo["coluna"] - 1] != "#") :
                 TABULEIRO[ int(robo["linha"]) ][ int(robo["coluna"]) ] = ".";
 
-                if (TABULEIRO[robo["linha"]][robo["coluna"] + 1] == "*"):
+                if (TABULEIRO[robo["linha"]][robo["coluna"] - 1] == "*"):
                     countBandeira += 1;
-                TABULEIRO[robo["linha"]][robo["coluna"] + 1] = direcaoFinal;
-                robo = {"linha": robo["linha"] ,"coluna": robo["coluna"] + 1};
+                TABULEIRO[robo["linha"]][robo["coluna"] - 1] = direcaoFinal;
+                robo = {"linha": robo["linha"] ,"coluna": robo["coluna"] - 1};
         
     TABULEIRO[robo["linha"]][robo["coluna"]] = direcaoFinal;
     #return direcaoFinal;
-    return countBandeira;
+    return {"count":countBandeira,"robo":robo};
 
 OPERACOES = {"D":{
                     "desc":"gire 90 graus para a direita",
@@ -129,10 +137,15 @@ print(ROBO);
 # Executando Operacoes no ROBO
 for instrucao in listInstrucoes:
     print("Tabuleiro ATUAL!")
+    print(instrucao)
     for linha in range(0,NLINHAS):
         print(modoMostrar.join(TABULEIRO[linha]));
     input();
-    BANDEIRAS += operar(OPERACOES[instrucao],ROBO);
+    resultado = operar(OPERACOES[instrucao],ROBO);
+    ROBO = resultado["robo"];
+    BANDEIRAS += resultado["count"];
+    print("ROBO:");
+    print(ROBO);
 
 # D Test
 """print("RESULTADO DE IR PARA E: %s" % OPERACOES["D"]["desc"])
